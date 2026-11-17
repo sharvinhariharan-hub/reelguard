@@ -15,14 +15,17 @@ jobs:
       - run: npm test --prefix ios/FilterTests
       - run: xcodebuild -project ios/ReelGuard.xcodeproj -scheme ReelGuard -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' -derivedDataPath ios/DerivedData CODE_SIGNING_ALLOWED=NO build
       - name: Launch app in iPhone simulator and capture intro
+        timeout-minutes: 5
         run: |
           python3 - <<'PY'
-          import json, subprocess, time
+          import json, re, subprocess, time
           def run(*args):
-              return subprocess.check_output(args, text=True).strip()
+              return subprocess.check_output(args, text=True, timeout=180).strip()
           devices = json.loads(run('xcrun', 'simctl', 'list', 'devices', 'available', '--json'))['devices']
-          phone = next(d for group in devices.values() for d in group if d['name'].startswith('iPhone'))
+          phones = [(runtime, d) for runtime, group in devices.items() for d in group if d['name'].startswith('iPhone')]
+          runtime, phone = max(phones, key=lambda item: tuple(map(int, re.findall(r'\d+', item[0]))))
           device = phone['udid']
+          print('Launching ' + phone['name'] + ' on ' + runtime, flush=True)
           if phone['state'] != 'Booted':
               run('xcrun', 'simctl', 'boot', device)
           run('xcrun', 'simctl', 'bootstatus', device, '-b')
