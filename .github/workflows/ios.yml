@@ -14,6 +14,31 @@ jobs:
       - run: npm ci --prefix ios/FilterTests --ignore-scripts --no-audit --no-fund
       - run: npm test --prefix ios/FilterTests
       - run: xcodebuild -project ios/ReelGuard.xcodeproj -scheme ReelGuard -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' -derivedDataPath ios/DerivedData CODE_SIGNING_ALLOWED=NO build
+      - name: Launch app in iPhone simulator and capture intro
+        run: |
+          python3 - <<'PY'
+          import json, subprocess, time
+          def run(*args):
+              return subprocess.check_output(args, text=True).strip()
+          devices = json.loads(run('xcrun', 'simctl', 'list', 'devices', 'available', '--json'))['devices']
+          phone = next(d for group in devices.values() for d in group if d['name'].startswith('iPhone'))
+          device = phone['udid']
+          if phone['state'] != 'Booted':
+              run('xcrun', 'simctl', 'boot', device)
+          run('xcrun', 'simctl', 'bootstatus', device, '-b')
+          run('xcrun', 'simctl', 'ui', device, 'appearance', 'light')
+          run('xcrun', 'simctl', 'install', device, 'ios/DerivedData/Build/Products/Debug-iphonesimulator/ReelGuard.app')
+          print(run('xcrun', 'simctl', 'launch', device, 'dev.reelguard.ios'))
+          time.sleep(4)
+          jobs = run('xcrun', 'simctl', 'spawn', device, 'launchctl', 'list')
+          assert any('dev.reelguard.ios' in row and row.split()[0].isdigit() for row in jobs.splitlines()), 'App is not running'
+          run('xcrun', 'simctl', 'io', device, 'screenshot', 'ios/reelguard-ios-intro.png')
+          print('PASS: app launched and remained running in ' + phone['name'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reelguard-ios-preview
+          path: ios/reelguard-ios-intro.png
       - name: Build unsigned iPhone app for personal signing
         run: xcodebuild -project ios/ReelGuard.xcodeproj -scheme ReelGuard -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath ios/DerivedData CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
       - name: Package iPhone IPA
