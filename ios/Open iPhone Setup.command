@@ -14,6 +14,7 @@ if ! xcodebuild -version >/dev/null 2>&1; then
     print -r -- 'https://developer.apple.com/xcode/system-requirements'
     print -r -- 'https://developer.apple.com/download/all/?q=Xcode'
     print -r -- 'After installing Xcode and its iOS platform support, run this helper again.'
+    print -r -- 'Alternatively, see ALTSTORE-INSTALL.md to sign the downloadable IPA without local Xcode.'
     exit 2
 fi
 

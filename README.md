@@ -9,7 +9,7 @@ An open-source Android companion that detects Instagram’s full-screen Reels pl
 | Platform | Status |
 | --- | --- |
 | Android 8+ | Native prototype implemented; synthetic tests do not prove live Instagram compatibility |
-| iPhone | Separate SwiftUI/WebKit app source implemented; iOS compilation, signing and live-device testing remain pending. No control over official Instagram. |
+| iPhone | Separate SwiftUI/WebKit client compiled for simulator and iPhone; unsigned IPA for personal signing. Live-device/Instagram testing remains pending. No control over official Instagram. |
 
 See [the iPhone feasibility note](docs/ios-feasibility.md).
 

@@ -1,5 +1,5 @@
 name: Android checks
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
 jobs:
@@ -11,7 +11,10 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - uses: android-actions/setup-android@v3
+      - uses: android-actions/setup-android@v4
+        with:
+          packages: platform-tools
+          log-accepted-android-sdk-licenses: false
       - uses: gradle/actions/setup-gradle@v4
       - run: sdkmanager 'platforms;android-34' 'build-tools;34.0.0'
       - run: ./gradlew -PincludeFixture :app:testDebugUnitTest :app:lintDebug :app:assembleDebug :fixture:assembleDebug --console=plain

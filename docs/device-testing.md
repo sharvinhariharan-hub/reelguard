@@ -22,4 +22,4 @@ Record phone model, Android version, Instagram version, orientation, language, a
 
 ## Release gate
 
-Do not describe the app as “blocks all Reels” until entry points and inline playback are covered and verified. Do not describe iPhone support as implemented. No Play Store publication or public repository creation has been performed by this task.
+Do not describe the app as “blocks all Reels” until entry points and inline playback are covered and verified. The separate iPhone client does not control the official Instagram app. Source is published at https://github.com/sharvinhariharan-hub/reelguard; no Play Store or App Store publication has been performed.

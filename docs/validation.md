@@ -30,6 +30,6 @@ The smoke checks use a purpose-built fixture bearing Instagram’s package name,
 - Zero frames or audio before detection; the overlay does not pause media, and failed Back navigation may leave audio playing.
 - Multi-window, landscape, different phone geometries, older Android versions, or OEM battery management.
 - iOS selective blocking inside the official Instagram app. A separate website-based iPhone client was subsequently implemented; it is outside this Android report. See `../ios/VALIDATION.md`.
-- Google Play approval, public GitHub publication, or a signed production release.
+- Google Play approval or a signed production release. Source has subsequently been published at https://github.com/sharvinhariharan-hub/reelguard.
 
 The requested complete Android-and-iOS product is **not complete**. This deliverable is a tested Android prototype and a documented iOS feasibility boundary. The next Android validation step is the physical-device checklist in `device-testing.md`.

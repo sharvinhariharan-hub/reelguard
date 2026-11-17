@@ -1,6 +1,6 @@
 # Install using a personal Apple ID
 
-The selected distribution route is **Xcode Personal Team signing**, for the user’s own iPhone. A paid membership and TestFlight are not needed for this route. This does not produce a public installation URL.
+The user selected **personal Apple ID signing**. There are two routes: build/sign directly in Xcode as described here, or download the cloud-built iPhone IPA and sign it with [AltStore Classic](ALTSTORE-INSTALL.md). Neither requires a paid membership or TestFlight. A public IPA download URL still requires personal signing before installation.
 
 ## Current prerequisite
 
@@ -15,7 +15,7 @@ On 18 November 2026, this Mac runs macOS 15.5 and has only Command Line Tools. F
 5. If `dev.reelguard.ios` is unavailable, replace it with a unique reverse-domain identifier for this development build. Keep it stable for subsequent reinstalls.
 6. Connect and unlock your iPhone. Accept the iPhone’s **Trust This Computer** prompt when shown. Select the iPhone as Xcode’s run destination.
 7. When prompted, enable **Settings → Privacy & Security → Developer Mode** on the iPhone, restart, and confirm. This switch may appear only after pairing starts.
-8. Press **Run** in Xcode. Resolve any compilation or signing errors before treating the app as ready. The full iOS build has not yet been performed.
+8. Press **Run** in Xcode. The app has compiled in the cloud, but local signing and installation still need to be completed and verified for your phone.
 
 The setup helper checks for full Xcode and the iOS SDK, then opens the project. It does not sign in, install Xcode, select a team, accept agreements, or claim to install the app automatically.
 

@@ -2,7 +2,9 @@
 
 This is a native SwiftUI iPhone app containing a `WKWebView` that opens Instagram’s website with a Reels filter. It is **not** an extension for the official Instagram app and cannot selectively disable Reels there. Opening the official app or another browser bypasses this filter.
 
-The source has been implemented. It has not been compiled for iOS, signed, installed on an iPhone, or tested against a live Instagram account. The current development Mac has Command Line Tools, but no full Xcode/iOS SDK and no valid signing identities. There is no IPA or TestFlight URL yet.
+The app has been compiled for the iOS simulator and physical iPhone with GitHub Actions. The unsigned iPhone IPA is intended for signing with your personal Apple ID through AltStore Classic, or you can build and sign from Xcode. It has not yet been installed on a physical iPhone or verified against a live Instagram account. It is not a TestFlight or App Store build.
+
+See [release downloads](https://github.com/sharvinhariharan-hub/reelguard/releases) and [installing with AltStore](ALTSTORE-INSTALL.md). Downloading an unsigned IPA does not itself install it; personal signing is required. This route avoids installing full Xcode on your own Mac.
 
 ## Implemented behavior
 
@@ -35,7 +37,7 @@ xcodebuild -project ReelGuard.xcodeproj -scheme ReelGuard \
   -derivedDataPath DerivedData CODE_SIGNING_ALLOWED=NO build
 ```
 
-The repository includes a macOS GitHub Actions workflow for this build. It has been authored, not executed on a remote repository. Its simulator artifact cannot be installed on a physical iPhone.
+The repository includes a macOS GitHub Actions workflow that compiles both simulator and iPhone builds. Its simulator artifact cannot be installed on a physical iPhone; use the separately packaged iPhone IPA for personal signing.
 
 ## Checks
 
