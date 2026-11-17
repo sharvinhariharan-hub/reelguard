@@ -1,0 +1,6 @@
+pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
+dependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories { google(); mavenCentral() } }
+rootProject.name = 'ReelGuard'
+include ':app'
+// Explicit opt-in: this synthetic test app must never be installed alongside real Instagram.
+if (providers.gradleProperty('includeFixture').isPresent()) include ':fixture'

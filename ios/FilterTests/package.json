@@ -1,0 +1,6 @@
+{
+  "name": "reelguard-filter-tests",
+  "private": true,
+  "scripts": { "test": "node --test reel-filter.test.cjs" },
+  "devDependencies": { "jsdom": "26.1.0" }
+}

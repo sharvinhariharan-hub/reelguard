@@ -1,0 +1,40 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+		7D1043473D55BFA90E8530D3 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReelGuardApp.swift"; sourceTree = "<group>"; };
+		2D22BC251C97567670702B96 = { isa = PBXBuildFile; fileRef = 7D1043473D55BFA90E8530D3; };
+		1D06A0D76F000E6EDD18DE49 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserModel.swift"; sourceTree = "<group>"; };
+		126E5D86C51D3A32325A2E23 = { isa = PBXBuildFile; fileRef = 1D06A0D76F000E6EDD18DE49; };
+		8F3A07543988E4673DCAE5E5 = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView.swift"; sourceTree = "<group>"; };
+		D524735603DBCE256269C329 = { isa = PBXBuildFile; fileRef = 8F3A07543988E4673DCAE5E5; };
+		9F00FAD98BADC1330E637A0A = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReelPolicy.swift"; sourceTree = "<group>"; };
+		F3F5B8457E1973D11AB5E995 = { isa = PBXBuildFile; fileRef = 9F00FAD98BADC1330E637A0A; };
+		4BB4CA75941B7BBC5BC6A12B = { isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "reel-filter.js"; sourceTree = "<group>"; };
+		33D5A0A5C80DBDE09366A512 = { isa = PBXBuildFile; fileRef = 4BB4CA75941B7BBC5BC6A12B; };
+		3685E330EC5277A9DD5661C6 = { isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets.xcassets"; sourceTree = "<group>"; };
+		AA400DFD4219F700A8EA7668 = { isa = PBXBuildFile; fileRef = 3685E330EC5277A9DD5661C6; };
+		96ED5C5789B174A01557791C = { isa = PBXFileReference; lastKnownFileType = text.xml; path = "PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
+		1ECEA647854BE794015C1169 = { isa = PBXBuildFile; fileRef = 96ED5C5789B174A01557791C; };
+		38A007151ABE87CC01A5B6E9 = { isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReelGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E50290A24C49A459B43487C5 = { isa = PBXGroup; children = (69F8D45498D7E20DA99BB780, 82C062CB28C8FF6C54323B56, FBDC4F23F93125BBEEAE800C); sourceTree = "<group>"; };
+		69F8D45498D7E20DA99BB780 = { isa = PBXGroup; path = App; children = (7D1043473D55BFA90E8530D3, 1D06A0D76F000E6EDD18DE49, 8F3A07543988E4673DCAE5E5, 0189424A5A60FED329FA868E); sourceTree = "<group>"; };
+		82C062CB28C8FF6C54323B56 = { isa = PBXGroup; path = Core/Sources/ReelGuardCore; name = Core; children = (9F00FAD98BADC1330E637A0A); sourceTree = "<group>"; };
+		0189424A5A60FED329FA868E = { isa = PBXGroup; path = Resources; children = (4BB4CA75941B7BBC5BC6A12B, 3685E330EC5277A9DD5661C6, 96ED5C5789B174A01557791C); sourceTree = "<group>"; };
+		FBDC4F23F93125BBEEAE800C = { isa = PBXGroup; name = Products; children = (38A007151ABE87CC01A5B6E9); sourceTree = "<group>"; };
+		BCE16DD0260827ECF338C787 = { isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (2D22BC251C97567670702B96, 126E5D86C51D3A32325A2E23, D524735603DBCE256269C329, F3F5B8457E1973D11AB5E995); runOnlyForDeploymentPostprocessing = 0; };
+		D6C9E8A172005E68A1DD674F = { isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (33D5A0A5C80DBDE09366A512, AA400DFD4219F700A8EA7668, 1ECEA647854BE794015C1169); runOnlyForDeploymentPostprocessing = 0; };
+		7561BFB015D8F536760CB671 = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		0E8A3AD980EC179856012B7E = { isa = PBXNativeTarget; buildConfigurationList = B483F6EB73610DE752E457A0; buildPhases = (BCE16DD0260827ECF338C787, 7561BFB015D8F536760CB671, D6C9E8A172005E68A1DD674F); buildRules = (); dependencies = (); name = ReelGuard; productName = ReelGuard; productReference = 38A007151ABE87CC01A5B6E9; productType = "com.apple.product-type.application"; };
+		98F54143AB4E86B28C3AFEE0 = { isa = PBXProject; attributes = { LastUpgradeCheck = 1600; TargetAttributes = { 0E8A3AD980EC179856012B7E = { CreatedOnToolsVersion = 16.0; }; }; }; buildConfigurationList = 41A2CC2D5321B7BB2E956CA5; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en, Base); mainGroup = E50290A24C49A459B43487C5; productRefGroup = FBDC4F23F93125BBEEAE800C; projectDirPath = ""; projectRoot = ""; targets = (0E8A3AD980EC179856012B7E); };
+		89E1FD6268CC0F221A2BE178 = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = "YES"; SDKROOT = "iphoneos"; IPHONEOS_DEPLOYMENT_TARGET = "16.0"; }; name = Debug; };
+		E6DE6C99132752C914FEF632 = { isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = "YES"; SDKROOT = "iphoneos"; IPHONEOS_DEPLOYMENT_TARGET = "16.0"; }; name = Release; };
+		41A2CC2D5321B7BB2E956CA5 = { isa = XCConfigurationList; buildConfigurations = (89E1FD6268CC0F221A2BE178, E6DE6C99132752C914FEF632); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		7082CC0B6FC1282FCEABD07A = { isa = XCBuildConfiguration; buildSettings = { ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon"; CODE_SIGN_STYLE = "Automatic"; CURRENT_PROJECT_VERSION = "1"; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = "YES"; INFOPLIST_KEY_CFBundleDisplayName = "ReelGuard"; INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity"; INFOPLIST_KEY_UILaunchScreen_Generation = "YES"; INFOPLIST_KEY_UIApplicationSceneManifest_Generation = "YES"; INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait"; MARKETING_VERSION = "0.1.0"; PRODUCT_BUNDLE_IDENTIFIER = "dev.reelguard.ios"; PRODUCT_NAME = "$(TARGET_NAME)"; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SWIFT_VERSION = "5.0"; TARGETED_DEVICE_FAMILY = "1"; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; DEBUG_INFORMATION_FORMAT = "dwarf"; ENABLE_PREVIEWS = "YES"; }; name = Debug; };
+		639A7CA24D39909E713B47F7 = { isa = XCBuildConfiguration; buildSettings = { ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon"; CODE_SIGN_STYLE = "Automatic"; CURRENT_PROJECT_VERSION = "1"; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = "YES"; INFOPLIST_KEY_CFBundleDisplayName = "ReelGuard"; INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity"; INFOPLIST_KEY_UILaunchScreen_Generation = "YES"; INFOPLIST_KEY_UIApplicationSceneManifest_Generation = "YES"; INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait"; MARKETING_VERSION = "0.1.0"; PRODUCT_BUNDLE_IDENTIFIER = "dev.reelguard.ios"; PRODUCT_NAME = "$(TARGET_NAME)"; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SWIFT_VERSION = "5.0"; TARGETED_DEVICE_FAMILY = "1"; SWIFT_OPTIMIZATION_LEVEL = "-O"; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; ENABLE_PREVIEWS = "YES"; }; name = Release; };
+		B483F6EB73610DE752E457A0 = { isa = XCConfigurationList; buildConfigurations = (7082CC0B6FC1282FCEABD07A, 639A7CA24D39909E713B47F7); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+	};
+	rootObject = 98F54143AB4E86B28C3AFEE0;
+}

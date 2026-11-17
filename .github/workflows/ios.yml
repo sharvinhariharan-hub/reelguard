@@ -1,0 +1,36 @@
+name: iOS checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: swift run --package-path ios/Core ReelGuardPolicyChecks
+      - run: npm ci --prefix ios/FilterTests --ignore-scripts --no-audit --no-fund
+      - run: npm test --prefix ios/FilterTests
+      - run: xcodebuild -project ios/ReelGuard.xcodeproj -scheme ReelGuard -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' -derivedDataPath ios/DerivedData CODE_SIGNING_ALLOWED=NO build
+      - name: Build unsigned iPhone app for personal signing
+        run: xcodebuild -project ios/ReelGuard.xcodeproj -scheme ReelGuard -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath ios/DerivedData CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
+      - name: Package iPhone IPA
+        run: |
+          mkdir -p ios/package/Payload
+          ditto ios/DerivedData/Build/Products/Release-iphoneos/ReelGuard.app ios/package/Payload/ReelGuard.app
+          cd ios/package
+          zip -qry ../ReelGuard-unsigned.ipa Payload
+          cd ..
+          shasum -a 256 ReelGuard-unsigned.ipa > ReelGuard-unsigned.ipa.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reelguard-iphone-personal-signing
+          path: |
+            ios/ReelGuard-unsigned.ipa
+            ios/ReelGuard-unsigned.ipa.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reelguard-ios-simulator-only
+          path: ios/DerivedData/Build/Products/Debug-iphonesimulator/ReelGuard.app

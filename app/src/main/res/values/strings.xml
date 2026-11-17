@@ -1,0 +1,15 @@
+<resources>
+    <string name="service_description">Detects the visible Instagram Reels player using interface identifiers and bounds, then covers it and attempts to go back. Does not read message text, take screenshots, or send data. Control blocking from ReelGuard or its Quick Settings tile. Prototype: some Reels may escape detection.</string>
+    <string name="block_reels">Block Reels</string>
+    <string name="reels_blocked">Reels are blocked</string>
+    <string name="go_back">Go back</string>
+    <string name="turn_off">Turn blocking off</string>
+    <style name="AppThemeBase" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#18614F</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">#F5F4EF</item>
+        <item name="android:navigationBarColor">#18614F</item>
+    </style>
+    <style name="AppTheme" parent="AppThemeBase" />
+</resources>

@@ -1,0 +1,17 @@
+.gradle/
+.idea/
+**/build/
+local.properties
+*.jks
+*.keystore
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/
+.build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+ios/package/
+*.ipa
+*.ipa.sha256
