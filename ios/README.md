@@ -39,6 +39,8 @@ xcodebuild -project ReelGuard.xcodeproj -scheme ReelGuard \
 
 The repository includes a macOS GitHub Actions workflow that compiles both simulator and iPhone builds. Its simulator artifact cannot be installed on a physical iPhone; use the separately packaged iPhone IPA for personal signing.
 
+The optional hosted simulator launch preview is available through the workflow’s `preview` input. Hosted simulator startup timed out during this task, so no successful runtime or screenshot verification is claimed. Normal builds still compile both targets, run the filter checks, and package the unsigned phone IPA.
+
 ## Checks
 
 From this directory:

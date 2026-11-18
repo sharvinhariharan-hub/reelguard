@@ -1,5 +1,13 @@
 name: iOS checks
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      preview:
+        description: Launch the optional hosted iPhone simulator preview
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
@@ -15,6 +23,7 @@ jobs:
       - run: npm test --prefix ios/FilterTests
       - run: xcodebuild -project ios/ReelGuard.xcodeproj -scheme ReelGuard -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' -derivedDataPath ios/DerivedData CODE_SIGNING_ALLOWED=NO build
       - name: Launch app in iPhone simulator and capture intro
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.preview }}
         timeout-minutes: 5
         run: |
           python3 - <<'PY'
@@ -39,6 +48,7 @@ jobs:
           print('PASS: app launched and remained running in ' + phone['name'])
           PY
       - uses: actions/upload-artifact@v4
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.preview }}
         with:
           name: reelguard-ios-preview
           path: ios/reelguard-ios-intro.png

@@ -20,7 +20,7 @@
 - `xcode-select` points to `/Library/Developer/CommandLineTools`. Full Xcode, an iOS SDK, simulator runtimes, and `devicectl` are unavailable.
 - The local keychain reports zero valid code-signing identities.
 - These local limitations were worked around by using GitHub Actions to compile and package the app. The IPA is unsigned; there is still no personal signing identity or connected iPhone installation in this task.
-- A simulator launch and screenshot check is also being added to the cloud workflow; its result is recorded below when available. Simulator binaries are not phone-installable packages.
+- The hosted simulator launch check did not complete: the initial attempt was cancelled after stalling, and the retry on the newest runtime hit its timeout. No launch screenshot or successful runtime verification is claimed. The preview is now an explicit opt-in workflow input, separate from the normal compile/test/IPA build path. Simulator binaries are not phone-installable packages.
 - No App Store Connect app, uploaded build, beta group, or TestFlight invitation link has been created.
 - The user selected installation with a personal Apple ID. `PERSONAL-ID-INSTALL.md` documents Personal Team signing; the setup helper has passed shell syntax checking and correctly stops when full Xcode is absent. Installation still requires Xcode, account sign-in in Apple’s interface, and a paired iPhone.
 
